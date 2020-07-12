@@ -11,6 +11,6 @@ jobs:
       - name: Install emscripten
         uses: ./ # Uses an action in the root directory
         with:
-          emscripten-version: 1.38.47
+          emscripten-version: 1.39.18
       - name: Test emscripten
         run: emcc tests/hello_world.c && [ "$(node a.out.js)" = "hello, world!" ]
