@@ -31,9 +31,13 @@ async function run(version) {
       stdout: (data) => (env_stdout += data.toString()),
     },
   });
-  env_stdout.match(/(?<=(PATH \+= )).*/g).forEach((p) => core.addPath(p));
+  env_stdout.match(/(?<=(PATH \+= )).*/g).forEach((p) => {
+    console.log("addPath", p);
+    core.addPath(p);
+  });
   env_stdout.match(/\w+ = .*/g).forEach((line) => {
     let [varName, varVal] = line.split(" = ", 2);
+    console.log("exportVariable", { varName, varVal });
     core.exportVariable(varName, varVal);
   });
 }
