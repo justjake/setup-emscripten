@@ -9,7 +9,7 @@ async function getEmscripten(version) {
     `https://github.com/emscripten-core/emsdk/archive/${ref}.zip`
   );
   const extPath = await tc.extractZip(emsdk_zip);
-  const toolRoot = path.join(extPath, "emsdk-master");
+  const toolRoot = path.join(extPath, `emsdk-${ref}`);
   const emsdk_bin = path.join(toolRoot, "emsdk");
 
   await exec.exec(emsdk_bin, ["install", version]);
