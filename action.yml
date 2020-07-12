@@ -6,6 +6,10 @@ inputs:
     description: 'Version of emscripten to install'
     required: false
     default: 'latest'
+  emsdk-version:
+    description: 'Ref of emsdk to use to install emscripten'
+    required: false
+    default: 'master'
 branding:
   icon: 'zap'
   color: 'green'
